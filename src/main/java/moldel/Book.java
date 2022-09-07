@@ -1,27 +1,27 @@
 package moldel;
 
+
+
+
 public class Book {
-    private int id;
+    private String idBook;
     private String nameBook;
-    private String category;
-    private String author;
+    private String authorBook;
+    private String releaseDay;
 
-    public Book() {
-    }
-
-    public Book(int id, String nameBook, String category, String author) {
-        this.id = id;
+    public Book(String idBook, String nameBook, String authorBook, String releaseDay) {
+        this.idBook = idBook;
         this.nameBook = nameBook;
-        this.category = category;
-        this.author = author;
+        this.authorBook = authorBook;
+        this.releaseDay = releaseDay;
     }
 
-    public int getId() {
-        return id;
+    public String getIdBook() {
+        return idBook;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdBook(String idBook) {
+        this.idBook = idBook;
     }
 
     public String getNameBook() {
@@ -32,29 +32,29 @@ public class Book {
         this.nameBook = nameBook;
     }
 
-    public String getCategory() {
-        return category;
+    public String getAuthorBook() {
+        return authorBook;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setAuthorBook(String authorBook) {
+        this.authorBook = authorBook;
     }
 
-    public String getAuthor() {
-        return author;
+    public String getReleaseDay() {
+        return releaseDay;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setReleaseDay(String releaseDay) {
+        this.releaseDay = releaseDay;
     }
 
     @Override
     public String toString() {
-        return "Book{" +
-                "id=" + id +
+        return "userBook{" +
+                "idBook='" + idBook + '\'' +
                 ", nameBook='" + nameBook + '\'' +
-                ", category='" + category + '\'' +
-                ", author='" + author + '\'' +
+                ", authorBook='" + authorBook + '\'' +
+                ", releaseDay='" + releaseDay + '\'' +
                 '}';
     }
 }
