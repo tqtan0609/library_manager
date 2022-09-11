@@ -14,4 +14,9 @@ public class AuthenticationService {
         int acc =AuthenticationDao.checkLogin(userName, passWord);
         return acc;
     }
+    public static int register( String userName, String passWord, String email){
+//        Account account = new Account();
+        int account = AuthenticationDao.register(userName, passWord, email);
+        return account;
+    }
 }

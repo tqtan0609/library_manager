@@ -38,15 +38,27 @@ public class AuthenticationDao {
             ResultSet resultSet = pstmt.executeQuery();
             while (resultSet.next()){
                 acc = new Account();
-//                acc.setId(resultSet.getInt("id"));
-//                acc.setUserName(resultSet.getString("username"));
-//                acc.setPassWord(resultSet.getString("password"));
-//                acc.setEmail(resultSet.getString("email"));
                 acc.setRole(resultSet.getInt("role"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return acc.getRole();
+    }
+    public static int register(String userName, String passWord, String email){
+        Account account = null;
+        int  rowsAffected =0;
+        java.sql.Connection con = service.Connection.getInstance().getConnection();
+        String insertData = "INSERT INTO library_manger(username, password, email, role)" + " VALUES(?, ?, ?, ?";
+        try (PreparedStatement pstmt = con.prepareStatement(insertData)) {
+            pstmt.setString(1, userName);
+            pstmt.setString(2, passWord);
+            pstmt.setString(3, email);
+            pstmt.setString(4, "0");
+            rowsAffected = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return rowsAffected;
     }
 }
